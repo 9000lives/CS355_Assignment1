@@ -1,0 +1,98 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Diamond Pickaxe",
+      "use": "To mine blocks like obsidian and ores",
+      "obtain": "Crafted in a crafting table with 3 diamonds and 2 sticks"
+    },
+    {
+      "id": 2,
+      "name": "Iron Sword",
+      "use": "To deal melee damage to mobs",
+      "obtain": "Crafted in a crafting table with 2 iron ingots and 1 stick"
+    },
+    {
+      "id": 3,
+      "name": "Bow",
+      "use": "To shoot arrows at distant targets",
+      "obtain": "Crafted with 3 sticks and 3 string"
+    },
+    {
+      "id": 4,
+      "name": "Shield",
+      "use": "To block incoming attacks",
+      "obtain": "Crafted with 6 wooden planks and 1 iron ingot"
+    },
+    {
+      "id": 5,
+      "name": "Golden Apple",
+      "use": "Restores health and provides absorption",
+      "obtain": "Crafted with 8 gold ingots and 1 apple"
+    }
+  ],
+  "blocks": [
+    {
+      "id": 1,
+      "name": "Dirt",
+      "location": "Found in almost all biomes",
+      "tool": "Shovel"
+    },
+    {
+      "id": 2,
+      "name": "Stone",
+      "location": "Found underground in most biomes",
+      "tool": "Pickaxe"
+    },
+    {
+      "id": 3,
+      "name": "Oak Log",
+      "location": "Found in forests and plains biomes",
+      "tool": "Axe"
+    },
+    {
+      "id": 4,
+      "name": "Sand",
+      "location": "Found in deserts and beaches",
+      "tool": "Shovel"
+    },
+    {
+      "id": 5,
+      "name": "Obsidian",
+      "location": "Formed when water touches lava",
+      "tool": "Diamond Pickaxe"
+    }
+  ],
+  "mobs": [
+    {
+      "id": 1,
+      "name": "Zombie",
+      "hostility": "Aggressive",
+      "drops": "Rotten Flesh"
+    },
+    {
+      "id": 2,
+      "name": "Cow",
+      "hostility": "Passive",
+      "drops": "Raw Beef, Leather"
+    },
+    {
+      "id": 3,
+      "name": "Enderman",
+      "hostility": "Neutral",
+      "drops": "Ender Pearl"
+    },
+    {
+      "id": 4,
+      "name": "Creeper",
+      "hostility": "Aggressive",
+      "drops": "Gunpowder"
+    },
+    {
+      "id": 5,
+      "name": "Skeleton",
+      "hostility": "Aggressive",
+      "drops": "Bones, Arrows"
+    }
+  ]
+}
