@@ -1,0 +1,113 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Diamond Pickaxe",
+      "use": "To mine blocks like obsidian and ores",
+      "obtain": "Crafted in a crafting table with 3 diamonds and 2 sticks",
+      "img": "/assets/mcDiamondPickaxe.png"
+    },
+    {
+      "id": 2,
+      "name": "Iron Sword",
+      "use": "To deal melee damage to mobs",
+      "obtain": "Crafted in a crafting table with 2 iron ingots and 1 stick",
+      "img": "/assets/mcIronSword.png"
+    },
+    {
+      "id": 3,
+      "name": "Bow",
+      "use": "To shoot arrows at distant targets",
+      "obtain": "Crafted with 3 sticks and 3 string",
+      "img": "/assets/mcBow.png"
+    },
+    {
+      "id": 4,
+      "name": "Shield",
+      "use": "To block incoming attacks",
+      "obtain": "Crafted with 6 wooden planks and 1 iron ingot",
+      "img": "/assets/mcShield.webp"
+    },
+    {
+      "id": 5,
+      "name": "Golden Apple",
+      "use": "Restores health and provides absorption",
+      "obtain": "Crafted with 8 gold ingots and 1 apple",
+      "img": "/assets/mcGoldenApple.png"
+    }
+  ],
+  "blocks": [
+    {
+      "id": 1,
+      "name": "Dirt",
+      "location": "Found in almost all biomes",
+      "tool": "Shovel",
+      "img": "/assets/mcDirtBlock.webp"
+    },
+    {
+      "id": 2,
+      "name": "Stone",
+      "location": "Found underground in most biomes",
+      "tool": "Pickaxe",
+      "img": "/assets/mcStoneBlock.png"
+    },
+    {
+      "id": 3,
+      "name": "Oak Log",
+      "location": "Found in forests and plains biomes",
+      "tool": "Axe",
+      "img": "/assets/mcOakLog.png"
+    },
+    {
+      "id": 4,
+      "name": "Sand",
+      "location": "Found in deserts and beaches",
+      "tool": "Shovel",
+      "img": "/assets/mcSand.png"
+    },
+    {
+      "id": 5,
+      "name": "Obsidian",
+      "location": "Formed when water touches lava",
+      "tool": "Diamond Pickaxe",
+      "img": "/assets/mcObsidian.webp"
+    }
+  ],
+  "mobs": [
+    {
+      "id": 1,
+      "name": "Zombie",
+      "hostility": "Aggressive",
+      "drops": "Rotten Flesh",
+      "img": "/assets/mcZombieColor.png"
+    },
+    {
+      "id": 2,
+      "name": "Cow",
+      "hostility": "Passive",
+      "drops": "Raw Beef, Leather",
+      "img": "/assets/mcCow.webp"
+    },
+    {
+      "id": 3,
+      "name": "Enderman",
+      "hostility": "Neutral",
+      "drops": "Ender Pearl",
+      "img": "/assets/mcEnderman.webp"
+    },
+    {
+      "id": 4,
+      "name": "Creeper",
+      "hostility": "Aggressive",
+      "drops": "Gunpowder",
+      "img": "/assets/mcCreeper.webp"
+    },
+    {
+      "id": 5,
+      "name": "Skeleton",
+      "hostility": "Aggressive",
+      "drops": "Bones, Arrows",
+      "img": "/assets/mcSkeleton.png"
+    }
+  ]
+}
