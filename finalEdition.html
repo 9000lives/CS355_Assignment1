@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style> 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 0.1fr 1.0fr 1fr 1fr 1fr 1fr 0.1fr;
+            grid-template-areas:
+            "header" 
+            "one"
+            "two"
+            "three"
+            "four"
+            "five"
+            "footer";
+            font-family: Minecraftia;
+            text-align: center;
+        }
+
+        .grid-area {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            border: 3px solid black;
+        }
+
+        .one {
+            grid-area: one;
+            background-image: url(https://9000lives.github.io/assets/minecraftBackground.png);
+            background-size: cover;
+            background-repeat: none;
+            color: #ffffff;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 10%;
+        }
+
+        .two {
+            grid-area: two;
+            background-image: url(https://9000lives.github.io/assets/mcDirt.webp);
+            background-repeat: repeat;
+            background-size: 160px 160px;
+            padding: 5%;
+            flex-direction: column;
+        }
+
+        .info-box {
+            border-radius: 10px;
+            border: 5px solid black;
+            background-color: white;
+            height: auto;
+            width: 300px;
+            padding: 20px;
+        }
+
+        .info-box img{
+            height: 160px;
+            width: 160px;
+            object-fit: contain;
+        }
+
+        .info-box-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            padding: 2rem;
+        }
+
+        .three {
+            grid-area: three;
+            padding: 2rem;
+        }
+
+        .four {
+            grid-area: four;
+            padding: 2rem;
+        }
+
+        .five {
+            grid-area: five;
+            padding: 2rem;
+        }
+
+        .rotate-img-left {
+            transform: rotate(225deg);
+            height: 160px;
+            width: 160px;
+            background-color: transparent;
+        }
+
+        .rotate-img-right {
+            transform: rotate(45deg);
+            height: 160px;
+            width: 160px;
+            background-color: transparent;
+        }
+
+        .arrow-button {
+            background-color: transparent;
+            border: none;
+        }
+
+        .arrow-button:hover {
+            cursor: pointer;
+            background-color: #ffffff80;
+        }
+
+        .stone-background {
+            background-image: url(https://9000lives.github.io/assets/mcStone.jpg);
+            background-repeat: repeat;
+            background-size: 160px 160px;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: lightgreen;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: lightgreen;
+        }
+
+        .title {
+            font-size: 4rem;
+            font-style: bold;
+        }
+
+        .nav-left{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-left: 10px;
+        }
+
+        .nav-middle{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-right: 10px;
+        }
+
+        .nav-right{
+            display: none; /* Change to flex when going to mobile view */
+            align-items: center;
+            padding-right: 10px;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hamburger span{
+            display: block;
+            width: 50px;
+            height: 7px;
+            background-color: white;
+            border: 2px solid black;
+        }
+
+        .hamburger:hover span{
+            background-color: #e7bfbf;
+            cursor: pointer;
+        }
+
+        .button {
+            font-family: Minecraftia;
+            background-color: tan;
+            font-size: 1rem;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .button:hover{
+            cursor: pointer;
+            background-color: whitesmoke;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .menu{
+            padding: 10px;
+            gap: 10px;
+            display: none;
+            background-color: darkgreen;
+            border-radius: 5px;
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            width: auto;
+        }
+
+        .menu.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .img {
+            height: 160px;
+        }
+
+        @font-face {
+        font-family: Minecraftia;
+        src: url(https://9000lives.github.io/assets/Minecraft.ttf);
+        }
+
+        @media (max-width: 1000px) {
+            .info-box-container {
+                flex-direction: column;
+            }
+
+            .button {
+                display: none;
+            }
+
+            .grid-container {
+                grid-template-rows: 75px auto auto auto auto auto 75px ;
+            }
+
+            .nav-right {
+                display: flex;
+            }
+
+            .grid-area {
+                flex-direction: column;
+            }
+
+            .left{
+                order: 2;
+                width: 50%;
+            }
+
+            .right {
+                order: 3;
+                width: 50%;
+            }
+
+            .menu .button{
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <nav class="header">
+            <div class="nav-left">
+                <img class="logo" src="https://9000lives.github.io/assets/mcLogo.png">
+                <h1>Minecraft Fan Wiki</h1>
+            </div>
+            <div class="nav-middle">
+                <a href="#mob-section" class="button">Mobs</a>
+                <a href="#item-section" class="button">Items</a>
+                <a href="#block-section" class="button">Blocks</a>
+            </div>
+            <div class="nav-right">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="menu">
+                <a href="#mob-section" class="button">Mobs</a>
+                <a href="#item-section" class="button">Items</a>
+                <a href="#block-section" class="button">Blocks</a>
+            </div>
+        </nav>
+        <div class="grid-area one">
+            <h1 class="title">The Unoffical Minecraft Compendium</h1>
+            <p>A fan-made wiki offering concise descriptions of Minecraft blocks, items, and mobs, serving as a quick-reference guide to the core elements of the game.</p>
+        </div>
+        <div class="grid-area two">
+            <div class="info-box-container">
+                <div class="info-box">
+                    <img src="https://9000lives.github.io/assets/mcPickaxe.jpg">
+                    <h1>Items</h1>
+                    <p>Items are objects that players can collect, craft, and use to interact with the Minecraft world. They include tools, weapons, food, and various utility objects that support survival, exploration, and building. This section offers concise descriptions of common items, outlining their primary functions and typical uses. Items play a key role in progression and enable players to adapt to different challenges within the game.</p>
+                </div>
+                <div class="info-box">
+                    <img src="https://9000lives.github.io/assets/mcBlock.jpg">
+                    <h1>Blocks</h1>
+                    <p>Blocks are the fundamental building units of the Minecraft world, forming terrain, structures, and interactive elements. Each block serves a distinct purpose, ranging from basic materials to functional components used in crafting and construction. This section provides brief descriptions of commonly encountered blocks, highlighting their primary uses and characteristics. Whether naturally generated or player-placed, blocks define the shape and behavior of the game world.</p>
+                </div>
+                <div class="info-box">
+                    <img src="https://9000lives.github.io/assets/mcZombie.png">
+                    <h1>Mobs</h1>
+                    <p>Mobs are living entities that inhabit the Minecraft world, ranging from passive creatures to hostile enemies. They interact with players and the environment in unique ways, often influencing gameplay through combat, trading, or resource drops. This section provides brief descriptions of common mobs, focusing on their behavior and role within the game. Mobs contribute to the world’s challenge, atmosphere, and overall activity.</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-area three stone-background" id="item-section">
+            <button class="arrow-button left" id="item-left-arrow">
+                <img src="https://9000lives.github.io/assets/mcArrow.png" class="rotate-img-left">
+            </button>
+            <div>
+                <h1 class="title">Items</h1>
+                <img class="img" id="item-img">
+                <div class="info-box">
+                    <h1 id="item-title">Item Name</h1>
+                    <li id="item-info1">Item info</li>
+                    <li id="item-info2">Item info</li>
+                </div>
+            </div>
+            <button class="arrow-button right" id="item-right-arrow">
+                <img src="https://9000lives.github.io/assets/mcArrow.png" class="rotate-img-right">
+            </button>
+        </div>
+        <div class="grid-area four stone-background" id="block-section">
+            <button class="arrow-button left" id="block-left-arrow">
+                <img src="https://9000lives.github.io/assets/mcArrow.png" class="rotate-img-left">
+            </button>
+            <div>
+                <h1 class="title">Blocks</h1>
+                <img class="img" id="block-img">
+                <div class="info-box">
+                    <h1 id="block-title">Block Name</h1>
+                    <li id="block-info1">Block info</li>
+                    <li id="block-info2">Block info</li>
+                </div>
+            </div>
+            <button class="arrow-button right" id="block-right-arrow">
+                <img src="https://9000lives.github.io/assets/mcArrow.png" class="rotate-img-right">
+            </button>
+        </div>
+        <div class="grid-area five stone-background" id="mob-section">
+            <button class="arrow-button left" id="mob-left-arrow">
+                <img src="https://9000lives.github.io/assets/mcArrow.png" class="rotate-img-left">
+            </button>
+            <div>
+                <h1 class="title">Mobs</h1>
+                <img class="img" id="mob-img">
+                <div class="info-box">
+                    <h1 id="mob-title">Mob Name</h1>
+                    <li id="mob-info1">Mob info</li>
+                    <li id="mob-info2">Mob info</li>
+                </div>
+            </div>
+            <button class="arrow-button right" id="mob-right-arrow">
+                <img src="https://9000lives.github.io/assets/mcArrow.png" class="rotate-img-right">
+            </button>
+        </div>
+        <footer class="footer">
+            <h1> © 2026 Minecraft Compendium Fan Wiki</h1>
+            <p>This is an unofficial fan-made website and is not affiliated with Mojang Studios.</p>
+        </footer>
+    </div>
+</body>
+    <script>
+        let itemsArray = [];
+        let blocksArray = [];
+        let mobsArray = [];
+        const BASE_URL = "https://9000lives.github.io";
+
+        let mobIndex = 0, itemIndex = 0, blockIndex = 0;
+
+        const itemLeftArrow = document.querySelector('#item-left-arrow');
+        const itemRightArrow = document.querySelector('#item-right-arrow');
+
+        const blockLeftArrow = document.querySelector('#block-left-arrow');
+        const blockRightArrow = document.querySelector('#block-right-arrow');
+
+        const mobLeftArrow = document.querySelector('#mob-left-arrow');
+        const mobRightArrow = document.querySelector('#mob-right-arrow');
+
+        const hamburgerMenu = document.querySelector('.hamburger');
+        const menu = document.querySelector('.menu'); let menuDisplay = false;
+
+        getProducts();
+
+        async function getProducts() {
+            try {
+                const response = await fetch("https://9000lives.github.io/db.json?v=" + Date.now())
+                const data = await response.json();
+                console.log(data);
+                
+                itemsArray = data.items;
+                blocksArray = data.blocks;
+                mobsArray = data.mobs;
+
+                updateBlockInfo();
+                updateItemInfo();
+                updateMobsInfo();
+            }catch(error) {
+                console.log("Error --> " + error);
+            }
+        }
+
+        itemLeftArrow.addEventListener('click', () => {
+            itemIndex--;
+            if(itemIndex < 0) {
+                itemIndex = itemsArray.length - 1;
+            }
+
+            updateItemInfo();
+        })
+
+        itemRightArrow.addEventListener('click', () => {
+            itemIndex++;
+            if(itemIndex > itemsArray.length - 1) {
+                itemIndex = 0;
+            }
+
+            updateItemInfo();
+        })
+
+        blockLeftArrow.addEventListener('click', () => {
+            blockIndex--;
+            if(blockIndex < 0) {
+                blockIndex = blocksArray.length - 1;
+            }
+
+            updateBlockInfo();
+        })
+
+        blockRightArrow.addEventListener('click', () => {
+            blockIndex++;
+            if(blockIndex > blocksArray.length - 1) {
+                blockIndex = 0;
+            }
+
+            updateBlockInfo();
+        })
+
+        mobLeftArrow.addEventListener('click', () => {
+            mobIndex--;
+            if(mobIndex < 0) {
+                mobIndex = mobsArray.length - 1;
+            }
+
+            updateMobsInfo();
+        })
+
+        mobRightArrow.addEventListener('click', () => {
+            mobIndex++;
+            if(mobIndex > mobsArray.length - 1) {
+                mobIndex = 0;
+            }
+
+            updateMobsInfo();
+        })
+
+        hamburgerMenu.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        })
+
+        function updateItemInfo() {
+            const title = document.getElementById('item-title');
+            title.textContent = itemsArray[itemIndex].name;
+
+            const info1 = document.getElementById('item-info1');
+            info1.textContent = itemsArray[itemIndex].use;
+
+            const info2 = document.getElementById('item-info2');
+            info2.textContent = itemsArray[itemIndex].obtain;
+
+            const img = document.getElementById('item-img');
+            img.src = BASE_URL + itemsArray[itemIndex].img
+
+            console.log("Succsefully updated Items");
+        }
+
+        function updateBlockInfo() {
+            const title = document.getElementById('block-title');
+            title.textContent = blocksArray[blockIndex].name;
+
+            const info1 = document.getElementById('block-info1');
+            info1.textContent = blocksArray[blockIndex].location;
+
+            const info2 = document.getElementById('block-info2');
+            info2.textContent = "Best Tool: " + blocksArray[blockIndex].tool;
+
+            const img = document.getElementById('block-img');
+            img.src = BASE_URL + blocksArray[blockIndex].img
+
+            console.log("Succsefully updated Blocks");
+        }
+
+        function updateMobsInfo() {
+            const title = document.getElementById('mob-title');
+            title.textContent = mobsArray[mobIndex].name;
+
+            const info1 = document.getElementById('mob-info1');
+            info1.textContent = mobsArray[mobIndex].hostility;
+
+            const info2 = document.getElementById('mob-info2');
+            info2.textContent = "Drops: " + mobsArray[mobIndex].drops;
+
+            const img = document.getElementById('mob-img');
+            img.src = BASE_URL + mobsArray[mobIndex].img
+
+            console.log("Succsefully updated Mobs");
+        }
+    </script>
+</html>
